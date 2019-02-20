@@ -122,7 +122,7 @@ class Template:
         code.addLine("return ''.join(result)")
         code.dedent()
 
-        self._render_funcition = code.getGlobals()['render']
+        self._renderFuncition = code.getGlobals()['render']
 
     def _syntaxError(self, msg, token):
         raise TemplateSyntaxError("%s: %r" % (msg, token))
@@ -148,3 +148,10 @@ class Template:
         if not re.match(r"[_a-zA-Z][_a-zA-Z0-9]*$", name):
             self._syntaxError("The param's name is invalid.", name)
         varsSet.add(name)
+
+    def render(self, context=None):
+        renderContext = dict(self.context)
+        if context:
+            renderContext.update(context)
+        return self._renderFuncition(renderContext, self._doDots)
+
