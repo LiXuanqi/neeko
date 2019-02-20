@@ -144,3 +144,7 @@ class Template:
             code = "c_%s" % expr
         return code
 
+    def _variable(self, name, varsSet):
+        if not re.match(r"[_a-zA-Z][_a-zA-Z0-9]*$", name):
+            self._syntaxError("The param's name is invalid.", name)
+        varsSet.add(name)
