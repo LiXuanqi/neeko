@@ -155,3 +155,12 @@ class Template:
             renderContext.update(context)
         return self._renderFuncition(renderContext, self._doDots)
 
+    def _doDots(self, value, *dots):
+        for dot in dots:
+            try:
+                value = getattr(value, dot)
+            except AttributeError:
+                value = value[dot]
+            if callable(value):
+                value = value()
+        return value
