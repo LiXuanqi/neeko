@@ -1,3 +1,6 @@
+import re
+
+
 class CodeBuilder:
     INDENT_STEP = 4
 
@@ -57,3 +60,16 @@ class Template:
             elif len(buffered) > 1:
                 code.addLine("extendToResult([%s])" % ", ".join(buffered))
             del buffered[:]
+
+        opsStack = []
+
+        # - handle Tokens
+        tokens = re.split(r"(?s)({{.*?}}|{%.*?%}|{#.*?#})", text)
+
+        for token in tokens:
+            if token.startswith("{#"):
+                # Comment
+                continue
+            elif token.startswith("{{"):
+                # Expression
+                expression = self._expr_code(token[2:-2].strip())
