@@ -1,6 +1,5 @@
 import re
 
-
 class CodeBuilder:
     INDENT_STEP = 4
 
