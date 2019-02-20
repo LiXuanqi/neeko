@@ -164,3 +164,7 @@ class Template:
             if callable(value):
                 value = value()
         return value
+
+class TemplateSyntaxError():
+    pass
+
