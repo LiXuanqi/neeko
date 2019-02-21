@@ -82,7 +82,7 @@ class Template:
                     if len(words) != 2:
                         self._syntaxError("Invalid If Statement", token)
                     opsStack.append("if")
-                    code.addLine("If %s" % self._exprCode(words[1]))
+                    code.addLine("if %s:" % self._exprCode(words[1]))
                     code.indent()
                 elif words[0] == "for":
                     # - Loop statement
@@ -90,7 +90,7 @@ class Template:
                         self._syntaxError("Invalid For Statement", token)
                     opsStack.append("for")
                     self._variable(words[1], self.loopVars)
-                    code.addLine("for c_%s in %s" % (words[1], self._exprCode(words[3])))
+                    code.addLine("for c_%s in %s:" % (words[1], self._exprCode(words[3])))
                     code.indent()
                 elif words[0].startswith("end"):
                     # - End tag
