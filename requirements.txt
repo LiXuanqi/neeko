@@ -1,1 +1,4 @@
 pytest
+python-coveralls
+pytest-cov
+coverage==4.4
