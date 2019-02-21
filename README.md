@@ -1,6 +1,7 @@
 # Neeko
-[![Build Status](https://travis-ci.org/LiXuanqi/neeko.svg?branch=master)](https://travis-ci.org/LiXuanqi/neeko)
-
+![Travis (.org)](https://img.shields.io/travis/LiXuanqi/neeko.svg)
+![Coveralls github](https://img.shields.io/coveralls/github/LiXuanqi/neeko.svg)
+![GitHub](https://img.shields.io/github/license/LiXuanqi/neeko.svg)
 
 Neeko is a **template engine** written by **Python**. Simple and fast.
 
